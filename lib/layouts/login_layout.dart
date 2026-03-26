@@ -28,7 +28,7 @@ class _LoginLayoutState extends State<LoginLayout> {
               fontSize: 10,
               decoration: TextDecoration.underline,
               fontWeight: FontWeight.bold,
-              color: AppColors.background,
+              color: AppColors.secondary,
             ),
           ),
         ),
