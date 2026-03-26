@@ -27,7 +27,7 @@ class _LoginLayoutState extends State<LoginLayout> {
                 const SizedBox(height: 70),
                 Text('EmpreGym', style: AppColors.brand),
                 Text(
-                  'Optimiza tu cuerpo, no sólo tu código.',
+                  '"Optimiza tu cuerpo, no sólo tu código"',
                   style: AppColors.h1,
                 ),
                 const SizedBox(height: 150),
