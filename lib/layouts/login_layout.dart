@@ -15,7 +15,7 @@ class _LoginLayoutState extends State<LoginLayout> {
     return Column(
       children: [
         SizedBox(height: 70),
-        Text('LoginGym', style: AppColors.brand),
+        Text('Screens2', style: AppColors.brand),
         Text('Optimiza tu cuerpo, no sólo tu código.', style: AppColors.h1),
         SizedBox(height: 150),
         InputFields(),
