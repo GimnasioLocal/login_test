@@ -12,10 +12,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: LoginLayout(),
-        floatingActionButton: FloatingActionButton(onPressed: () {}),
-      ),
+      home: Scaffold(body: LoginLayout()),
     );
   }
 }
