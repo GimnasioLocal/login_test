@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class AppColors {
@@ -17,6 +16,6 @@ class AppColors {
     fontSize: 40,
     fontWeight: FontWeight.bold,
   );
-  static const h1 = TextStyle(color: Colors.black);
+  static const h1 = TextStyle(color: Color.fromARGB(255, 93, 25, 89));
   static const link = TextStyle(color: AppColors.secondary);
 }
