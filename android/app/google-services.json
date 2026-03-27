@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "485591531562",
+    "project_id": "my-gym-login",
+    "storage_bucket": "my-gym-login.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:485591531562:android:fc72085396967c89610353",
+        "android_client_info": {
+          "package_name": "com.example.login_test"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvHPxJN1sXsSrJW9hrV0-93tE_3_2pe2A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
