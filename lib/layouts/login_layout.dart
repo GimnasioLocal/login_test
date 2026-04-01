@@ -39,10 +39,9 @@ class _LoginLayoutState extends State<LoginLayout> {
                 children: [
                   const SizedBox(height: 40),
 
-                  // 👉 ICONO ARRIBA
                   Image.asset(
                     "assets/images/icons8-levantamiento-de-pesas-50.png",
-                    height: 50,
+                    height: 40,
                   ),
 
                   const SizedBox(height: 20),
