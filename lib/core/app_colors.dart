@@ -16,6 +16,6 @@ class AppColors {
     fontSize: 40,
     fontWeight: FontWeight.bold,
   );
-  static const h1 = TextStyle(color: Color.fromARGB(255, 182, 11, 11));
+  static const h1 = TextStyle(color: Color.fromARGB(255, 0, 0, 0));
   static const link = TextStyle(color: AppColors.secondary);
 }

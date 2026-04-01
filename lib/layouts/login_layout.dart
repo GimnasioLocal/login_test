@@ -41,12 +41,7 @@ class _LoginLayoutState extends State<LoginLayout> {
                   Text('EmpreGym', style: AppColors.brand),
                   Text(
                     'Optimiza tu cuerpo, no sólo tu código.',
-                    style: TextStyle(
-                      color: Colors.amberAccent,
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Roboto',
-                    ),
+                    style: AppColors.h1,
                   ),
                   const SizedBox(height: 150),
                   const InputFields(),
