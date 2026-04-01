@@ -23,29 +23,49 @@ class _LoginLayoutState extends State<LoginLayout> {
               fit: BoxFit.cover,
             ),
           ),
+
           // Filtro de desenfoque
           Positioned.fill(
             child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3), // Ajusta el blur
-              child: Container(
-                color: Colors.black.withAlpha((0.1 * 255).round()),
-              ),
+              filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+              child: Container(color: Colors.black.withOpacity(0.1)),
             ),
           ),
+
           // Contenido principal
           Center(
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  const SizedBox(height: 70),
+                  const SizedBox(height: 40),
+
+                  // 👉 ICONO ARRIBA
+                  Image.asset(
+                    "assets/images/icons8-levantamiento-de-pesas-50.png",
+                    height: 50,
+                  ),
+
+                  const SizedBox(height: 20),
+
+                  // TÍTULO
                   Text('EmpreGym', style: AppColors.brand),
+
+                  // SUBTÍTULO
                   Text(
                     'Optimiza tu cuerpo, no sólo tu código.',
                     style: AppColors.h1,
+                    textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 150),
+
+                  // 👉 MENOS ESPACIO AQUÍ
+                  const SizedBox(height: 120),
+
+                  // CAMPOS DE TEXTO
                   const InputFields(),
+
                   const SizedBox(height: 10),
+
+                  // OLVIDÉ CONTRASEÑA
                   Align(
                     alignment: Alignment.center,
                     child: Text(
@@ -58,7 +78,10 @@ class _LoginLayoutState extends State<LoginLayout> {
                       ),
                     ),
                   ),
+
                   const SizedBox(height: 10),
+
+                  // BOTÓN
                   SizedBox(
                     height: 60,
                     width: 200,
