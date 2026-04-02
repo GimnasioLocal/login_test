@@ -55,7 +55,7 @@ class _RegisterLayoutState extends State<RegisterLayout> {
                   _buildField("Email"),
                   _buildField("Teléfono"),
                   _buildField("Contraseña", obscure: true),
-                  _buildField("Confirma contraseña", obscure: true),
+                  _buildField("Confirmar contraseña", obscure: true),
 
                   const SizedBox(height: 20),
 
