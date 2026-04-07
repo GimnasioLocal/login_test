@@ -12,10 +12,23 @@ class AppColors {
 
   //Fonts
   static const brand = TextStyle(
-    color: Colors.black,
+    color: Color(0xFFD15F02),
     fontSize: 40,
     fontWeight: FontWeight.bold,
+    shadows: [
+      Shadow(
+        offset: Offset(0.6, 1), // Desplazamiento de la sombra
+        color: Colors.white, // Color de la sombra
+        blurRadius: 3, // Difuminado de la sombra
+      ),
+    ],
   );
-  static const h1 = TextStyle(color: Color.fromARGB(255, 0, 0, 0));
+  static const h1 = TextStyle(
+    color: Color(0xFFD15F02),
+    fontSize: 18,
+    shadows: [
+      Shadow(offset: Offset(0.3, 0.5), color: Colors.white, blurRadius: 2),
+    ],
+  );
   static const link = TextStyle(color: AppColors.secondary);
 }

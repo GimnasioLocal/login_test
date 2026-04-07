@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:login_test/core/app_colors.dart';
 
 class UserPanelLayout extends StatelessWidget {
@@ -10,6 +11,46 @@ class UserPanelLayout extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Panel de usuario"),
         backgroundColor: AppColors.secondary,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () async {
+              final confirmar = await showDialog<bool>(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    title: const Text("Cerrar sesión"),
+                    content: const Text(
+                      "¿Estás seguro de que deseas cerrar sesión?",
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(context, false),
+                        child: const Text(
+                          "Cancelar",
+                          style: TextStyle(color: AppColors.secondary),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () => Navigator.pop(context, true),
+                        child: const Text(
+                          "Sí, salir",
+                          style: TextStyle(color: AppColors.secondary),
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              );
+
+              // Si el usuario cancela, no hacemos nada
+              if (confirmar != true) return;
+
+              // Si confirma, cerramos sesión
+              await FirebaseAuth.instance.signOut();
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
