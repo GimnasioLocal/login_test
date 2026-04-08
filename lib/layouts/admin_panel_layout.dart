@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:login_test/core/app_colors.dart';
-import 'package:login_test/layouts/admin_panel_layout.dart';
+import 'package:login_test/layouts/stocks_layout.dart';
 
-class UserPanelLayout extends StatelessWidget {
-  const UserPanelLayout({super.key});
+
+class AdminPanelLayout extends StatelessWidget {
+  const AdminPanelLayout({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // -------------------------
+      // APP BAR
+      // -------------------------
       appBar: AppBar(
-        title: const Text("Panel de usuario"),
+        title: const Text("Panel de administradores"),
         backgroundColor: AppColors.secondary,
         actions: [
           IconButton(
@@ -44,20 +48,26 @@ class UserPanelLayout extends StatelessWidget {
                 },
               );
 
-              // Si el usuario cancela, no hacemos nada
               if (confirmar != true) return;
 
-              // Si confirma, cerramos sesión
+              // Logout limpio: AuthWrapper se encarga del resto
               await FirebaseAuth.instance.signOut();
             },
           ),
         ],
       ),
+
+      // -------------------------
+      // BODY
+      // -------------------------
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // -------------------------
+            // RESUMEN GENERAL
+            // -------------------------
             Text(
               "Resumen general",
               style: TextStyle(
@@ -68,11 +78,16 @@ class UserPanelLayout extends StatelessWidget {
             ),
 
             const SizedBox(height: 10),
-            _buildCard("Próxima clase", "CrossFit - 18:00"),
-            _buildCard("Racha", "3 días seguidos"),
-            _buildCard("Acciones rápidas", "Reservar / Cancelar"),
+            _buildCard("Ocupación del box", "—"),
+            _buildCard("Alertas de stock", "—"),
+            _buildCard("Clases programadas", "—"),
+            _buildCard("Miembros totales", "—"),
 
             const SizedBox(height: 20),
+
+            // -------------------------
+            // SECCIONES
+            // -------------------------
             Text(
               "Secciones",
               style: TextStyle(
@@ -83,30 +98,29 @@ class UserPanelLayout extends StatelessWidget {
             ),
 
             const SizedBox(height: 10),
+
             Expanded(
               child: GridView.count(
                 crossAxisCount: 2,
                 childAspectRatio: 1.2,
                 children: [
-                  _buildSection("Mi perfil"),
-                  _buildSection("Progreso"),
                   _buildSection("Clases"),
-                  _buildSection("WOD"),
-                  _buildSection("Tienda"),
-                  _buildSection("Comunidad"),
-
-                  // ⭐ NUEVO BOTÓN
+                  _buildSection("Miembros"),
                   _buildSection(
-                    "Panel Admin",
+                    "Gestor de stocks",
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                          builder: (_) => const AdminPanelLayout(),
-                        ),
+                        MaterialPageRoute(builder: (_) => const StocksLayout()),
                       );
                     },
                   ),
+
+                  _buildSection("Pagos"),
+                  _buildSection("Tienda"),
+                  _buildSection("Comunidad"),
+                  _buildSection("Entrenamientos"),
+                  _buildSection("Informes y análisis"),
                 ],
               ),
             ),
@@ -116,6 +130,9 @@ class UserPanelLayout extends StatelessWidget {
     );
   }
 
+  // -------------------------
+  // TARJETAS DE RESUMEN
+  // -------------------------
   Widget _buildCard(String title, String subtitle) {
     return Card(
       elevation: 3,
@@ -123,6 +140,9 @@ class UserPanelLayout extends StatelessWidget {
     );
   }
 
+  // -------------------------
+  // SECCIONES DEL PANEL
+  // -------------------------
   Widget _buildSection(String title, {VoidCallback? onTap}) {
     return Card(
       elevation: 3,
