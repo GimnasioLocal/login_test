@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:login_test/core/app_colors.dart';
 import 'package:login_test/layouts/stocks_layout.dart';
 
-
 class AdminPanelLayout extends StatelessWidget {
   const AdminPanelLayout({super.key});
 
