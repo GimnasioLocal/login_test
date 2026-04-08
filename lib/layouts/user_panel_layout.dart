@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_test/core/app_colors.dart';
+import 'package:login_test/layouts/admin_panel_layout.dart';
 
 class UserPanelLayout extends StatelessWidget {
   const UserPanelLayout({super.key});
@@ -52,6 +53,19 @@ class UserPanelLayout extends StatelessWidget {
                   _buildSection("WOD"),
                   _buildSection("Tienda"),
                   _buildSection("Comunidad"),
+
+                  // ⭐ NUEVO BOTÓN
+                  _buildSection(
+                    "Panel Admin",
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const AdminPanelLayout(),
+                        ),
+                      );
+                    },
+                  ),
                 ],
               ),
             ),
@@ -68,13 +82,17 @@ class UserPanelLayout extends StatelessWidget {
     );
   }
 
-  Widget _buildSection(String title) {
+  Widget _buildSection(String title, {VoidCallback? onTap}) {
     return Card(
       elevation: 3,
-      child: Center(
-        child: Text(
-          title,
-          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(4),
+        child: Center(
+          child: Text(
+            title,
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
         ),
       ),
     );
